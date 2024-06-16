@@ -13,7 +13,7 @@ const Xcount = ()=>{
     return (
        <div>
         <h1>Counter</h1>
-        <p>Count:{count}</p>
+        <p>Count: {count}</p>
         <button onClick={incFun}>Increment</button><button onClick={decFun}>Decrement</button>
        </div> 
     )
