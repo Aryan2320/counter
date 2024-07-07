@@ -1,21 +1,32 @@
-import React from "react";
-import { useState } from "react";
-const Xcount = ()=>{
-    const [count,setCount]=useState(0);
-    let incFun =()=>{
-        setCount((prevCount)=>
-            prevCount+1)
+import {Component} from "react";
+import "./index.css";
+
+class CounterApp extends Component{
+    constructor(){
+        super()
+        this.state={
+            count:0,
+        }
+        
+    };
+    handleIncrement=()=>{
+       
+        this.setState((prev)=>({count:prev.count+1}))
+
     }
-    let decFun =()=>{
-        setCount((prevCount)=>
-            prevCount-1)
+    handleDecrement=()=>{
+        this.setState((prev)=>({count:prev.count-1}))
     }
-    return (
-       <div>
-        <h1>Counter</h1>
-        <p>Count: {count}</p>
-        <button onClick={incFun}>Increment</button><button onClick={decFun}>Decrement</button>
-       </div> 
+    
+   render(){
+    return(
+    <div className="counter">
+        <h1>Counter App</h1>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.handleIncrement}>Increment</button>
+        <button onClick={this.handleDecrement}>Decrement</button>
+    </div>
     )
+   }
 }
-export default Xcount
+export default CounterApp;
